@@ -1,4 +1,8 @@
 $primary-color: #444;
+$secondary-color: #eece1a;
+@mixin easeOut {
+	transition: all ease-out 0.4s;
+}
 * {
 	box-sizing: border-box;
 }
@@ -9,7 +13,7 @@ body {
 	height: 100%;
 	margin: 0;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	line-height: 1.7;
+	line-height: 1.5;
 }
 
 h1,
@@ -20,5 +24,46 @@ h3 {
 
 	&.lg-heading {
 		font-size: 6rem;
+		margin-top: 20vh;
+	}
+
+	&.sm-heading {
+		margin-bottom: 2rem;
+		padding: 0.2rem 1rem;
+		background: rgba(lighten($primary-color, 2), 0.5);
+	}
+}
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+header {
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+}
+
+.text-secondary {
+	color: $secondary-color;
+}
+
+main {
+	height: 100%;
+	padding: 4rem;
+
+	.icons {
+		margin-top: 0.5;
+		a {
+			padding: 0.6rem;
+
+			&:hover {
+				color: $secondary-color;
+				@include easeOut();
+			}
+		}
+	}
+	&#home {
+		overflow: hidden;
 	}
 }
